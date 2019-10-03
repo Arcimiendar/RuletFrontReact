@@ -22,7 +22,7 @@ function DepartmentSelect() {
     if (error)
         return <div>Error: {error}</div>;
     return <div className={"section container"}>
-        <Select>
+        <Select label={"chose department"}>
             {data.departments.map(department => <option value={department.id}>{department.name}</option>)}
         </Select>
         <Button type="submit" waves="light">
