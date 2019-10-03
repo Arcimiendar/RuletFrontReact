@@ -3,8 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "apollo-cache-inmemory": "^1.6.3",
+    "apollo-client": "latest",
+    "apollo-link-http": "^1.5.16",
+    "materialize-css": "latest",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
+    "react-materialize": "latest",
+    "react-router-dom": "latest",
     "react-scripts": "3.2.0"
   },
   "scripts": {
@@ -27,5 +33,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@apollo/react-hooks": "^3.1.2",
+    "graphql-tag": "^2.10.1",
+    "materialize-css": "latest",
+    "react-apollo": "^3.1.2"
   }
 }
