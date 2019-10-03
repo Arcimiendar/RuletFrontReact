@@ -1,14 +1,28 @@
 import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
-import {Route, Switch} from "react-router-dom";
-import DepartmentSelect from "./pages/DepartmentSelect";
+import Router from "./Router";
 
 function App() {
-  return (
-    <Switch>
-      <Route path={"/"} component={DepartmentSelect}/>
-    </Switch>
-  );
+  return [
+      <header></header>,
+      <main><Router/></main>,
+        <footer className="page-footer" style={{backgroundColor: "#0066ff"}}>
+            <div className="container">
+                <div className="row">
+                    <div className="col l6 s12">
+                        <h5 className="white-text">Information</h5>
+                        <p className="grey-text text-lighten-4">You can use this application to distribute your workers
+                            between departments</p>
+                    </div>
+                </div>
+            </div>
+            <div className="footer-copyright" color={"darkBlue"}>
+                <div className="container">
+                    The Rulet Application 2019
+                </div>
+            </div>
+        </footer>
+  ];
 }
 
 export default App;
