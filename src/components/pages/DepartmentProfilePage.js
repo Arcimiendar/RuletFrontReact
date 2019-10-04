@@ -23,9 +23,7 @@ const GET_DEPARTMENT_DATA_QUERY = gql`
 
 
 function DepartmentProfilePage(props) {
-    console.log(props);
     let department_id = props.match.params.department_id;
-    console.log(department_id);
     const { loading, error, data } = useQuery(GET_DEPARTMENT_DATA_QUERY, {
             variables: { department_id },
         });
