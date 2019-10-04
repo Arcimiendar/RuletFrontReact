@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter} from 'react-router-dom'
+import {BrowserRouter, Route} from 'react-router-dom'
 import {ApolloClient} from 'apollo-client'
 import {createHttpLink} from 'apollo-link-http'
 import {InMemoryCache} from 'apollo-cache-inmemory'
@@ -20,7 +20,7 @@ const client = new ApolloClient({
 ReactDOM.render(
     <ApolloProvider client={client}>
         <BrowserRouter>
-            <App />
+            <Route component={App}/>
         </BrowserRouter>
     </ApolloProvider>
     , document.getElementById('root')

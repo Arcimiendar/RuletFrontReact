@@ -11,7 +11,8 @@
     "react-dom": "^16.10.1",
     "react-materialize": "latest",
     "react-router-dom": "latest",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "universal-cookie": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
