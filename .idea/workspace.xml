@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a11e72e-1bdc-47b5-b679-62b5b08b21bc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/pages/RuletSessionResult.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/layouts/NotificationSystem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/DepartmentSelect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/DepartmentSelect.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/EmployeeDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/EmployeeDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/RuletList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/RuletList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layouts/HeaderFooterWrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layouts/HeaderFooterWrapper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/DepartmentProfilePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/DepartmentProfilePage.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +83,7 @@
       <workItem from="1570084003392" duration="12359000" />
       <workItem from="1570170802262" duration="10410000" />
       <workItem from="1570181216045" duration="56000" />
-      <workItem from="1570430281722" duration="9855000" />
+      <workItem from="1570430281722" duration="15975000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1570084325473</created>
@@ -142,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570435243945</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added rulet session result page">
+      <created>1570440313606</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1570440313606</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,17 +176,7 @@
     <MESSAGE value="add employee list page" />
     <MESSAGE value="add employee profile page" />
     <MESSAGE value="add rulet list page" />
-    <option name="LAST_COMMIT_MESSAGE" value="add rulet list page" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/App.js</url>
-          <line>5</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="added rulet session result page" />
+    <option name="LAST_COMMIT_MESSAGE" value="added rulet session result page" />
   </component>
 </project>

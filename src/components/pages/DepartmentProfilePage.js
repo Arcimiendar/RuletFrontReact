@@ -1,8 +1,9 @@
-import React from "react"
+import React, {Component} from "react"
 import gql from 'graphql-tag'
 import {useQuery} from "@apollo/react-hooks";
 import {Collapsible, CollapsibleItem, Icon, Collection, CollectionItem} from "react-materialize"
 import HeaderFooterWrapper from "../layouts/HeaderFooterWrapper";
+import {Redirect} from "react-router-dom";
 
 
 const GET_DEPARTMENT_DATA_QUERY = gql`
@@ -13,6 +14,7 @@ const GET_DEPARTMENT_DATA_QUERY = gql`
             description
             address
             employees {
+                id
                 firstName
                 lastName
                 image
@@ -22,14 +24,14 @@ const GET_DEPARTMENT_DATA_QUERY = gql`
 `;
 
 
-function DepartmentProfilePage(props) {
-    let department_id = props.match.params.department_id;
+function DepartmentProfilePageChild({onChange, departmentId}) {
+    console.log(departmentId);
     const { loading, error, data } = useQuery(GET_DEPARTMENT_DATA_QUERY, {
-            variables: { department_id },
+            variables: { department_id: departmentId },
         });
 
     if (loading)
-        return <HeaderFooterWrapper>"Loading ...";</HeaderFooterWrapper>;
+        return <HeaderFooterWrapper>Loading ...</HeaderFooterWrapper>;
     if (error)
         return <HeaderFooterWrapper>Error: {error.message}</HeaderFooterWrapper>;
     let collapsible_items = [];
@@ -50,7 +52,7 @@ function DepartmentProfilePage(props) {
             <CollapsibleItem header={"Employees"} icon={<Icon>face</Icon>}>
                 <Collection>
                     {data.department.employees.map(e =>
-                    <CollectionItem href={"#"}>
+                    <CollectionItem href={"#"} onClick={() => onChange("/employee/" + e.id)}>
                         <img src={"http://127.0.0.1:8000" + e.image} alt={""}
                              className={"circle"} width={"4%"} height={"4%"}/>
                         {e.firstName} {e.lastName}
@@ -70,7 +72,7 @@ function DepartmentProfilePage(props) {
             </CollapsibleItem>
         );
 
-    return <HeaderFooterWrapper Department={data.department.name}>
+    return <HeaderFooterWrapper Department={data.department.name} DepartmentId={data.department.id}>
         <div className={"container"}>
             <h1>{data.department.name}</h1>
             <Collapsible>
@@ -79,6 +81,30 @@ function DepartmentProfilePage(props) {
         </div>
     </HeaderFooterWrapper>
 
+}
+
+class DepartmentProfilePage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            redirect: false,
+            url: null
+        };
+        this.handleChange = this.handleChange.bind(this);
+    }
+    handleChange(url) {
+        this.setState({
+            redirect: true,
+            url: url
+        });
+    }
+    render() {
+        if (this.state.redirect)
+            return <Redirect to={this.state.url}/>;
+
+        return <DepartmentProfilePageChild onChange={this.handleChange}
+                                           departmentId={this.props.match.params.department_id}/>
+    }
 }
 
 export default DepartmentProfilePage;
