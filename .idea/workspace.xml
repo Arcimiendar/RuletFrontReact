@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a11e72e-1bdc-47b5-b679-62b5b08b21bc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/pages/EmployeeList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/EmployeeDetail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layouts/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layouts/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layouts/HeaderFooterWrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layouts/HeaderFooterWrapper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/DepartmentProfilePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/DepartmentProfilePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/EmployeeList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/EmployeeList.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +22,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectId" id="1RgLssEdXz2FfCc5qagdJdXvqmp" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -81,7 +80,9 @@
       <option name="presentableId" value="Default" />
       <updated>1570084001984</updated>
       <workItem from="1570084003392" duration="12359000" />
-      <workItem from="1570170802262" duration="10071000" />
+      <workItem from="1570170802262" duration="10410000" />
+      <workItem from="1570181216045" duration="56000" />
+      <workItem from="1570430281722" duration="2627000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1570084325473</created>
@@ -118,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570178917862</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add employee list page">
+      <created>1570181027956</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1570181027956</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,7 +151,8 @@
     <MESSAGE value="added footer" />
     <MESSAGE value="added navbar and full copied choose department page" />
     <MESSAGE value="added department profile page page" />
-    <option name="LAST_COMMIT_MESSAGE" value="added department profile page page" />
+    <MESSAGE value="add employee list page" />
+    <option name="LAST_COMMIT_MESSAGE" value="add employee list page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -151,7 +160,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/App.js</url>
           <line>5</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

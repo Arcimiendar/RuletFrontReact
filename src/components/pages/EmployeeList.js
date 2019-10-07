@@ -1,8 +1,9 @@
-import React from "react";
+import React, {Component} from "react";
 import {Collection, CollectionItem} from "react-materialize"
 import HeaderFooterWrapper from "../layouts/HeaderFooterWrapper";
 import gql from "graphql-tag";
 import {useQuery} from "@apollo/react-hooks";
+import {Redirect} from "react-router-dom";
 
 const GET_EMPLOYEES_QUERY = gql`
     query {
@@ -14,9 +15,9 @@ const GET_EMPLOYEES_QUERY = gql`
         }
     }
 
-`
+`;
 
-function EmployeeList() {
+function EmployeeListChild({ onChange }) {
 
     let { loading, error, data } = useQuery(GET_EMPLOYEES_QUERY);
     if (loading)
@@ -28,7 +29,7 @@ function EmployeeList() {
         there is no employees yet. Go home.
     </CollectionItem>;
     if (data.employees.length > 0)
-        collection_items = data.employees.map(e =>  <CollectionItem href={"#"}>
+        collection_items = data.employees.map(e =>  <CollectionItem href={"#"}  onClick={() => onChange(e.id)} >
             <img src={"http://127.0.0.1:8000" + e.image} alt={""}
                  className={"circle"} width={"4%"} height={"4%"}/>
             {e.firstName} {e.lastName}
@@ -40,5 +41,29 @@ function EmployeeList() {
         </Collection>
     </HeaderFooterWrapper>
 }
+
+class EmployeeList extends Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            redirect: false,
+            employee_id: 0
+        };
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(employee_id) {
+        this.setState({
+            redirect: true,
+            employee_id: employee_id
+        });
+    }
+    render() {
+        if (this.state.redirect)
+            return <Redirect to={"/employee/" + this.state.employee_id}/>;
+        return <EmployeeListChild onChange={this.handleChange}/>
+    }
+}
+
 
 export default EmployeeList;
