@@ -33,7 +33,7 @@ function EmployeeDetail(props) {
         </HeaderFooterWrapper>;
     if (error)
         return <HeaderFooterWrapper>
-            ERROR: {error}
+            ERROR: {error.message}
         </HeaderFooterWrapper>;
 
     let list_of_actions = [];

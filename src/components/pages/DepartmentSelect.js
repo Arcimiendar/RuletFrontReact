@@ -22,7 +22,7 @@ function DepartmentSelectChild({ onChange }) {
     if (loading)
         return <HeaderFooterWrapper>Loading...</HeaderFooterWrapper>;
     if (error)
-        return <HeaderFooterWrapper>Error: {error}</HeaderFooterWrapper>;
+        return <HeaderFooterWrapper>Error: {error.message}</HeaderFooterWrapper>;
     return <HeaderFooterWrapper>
         <div className={"section container"}>
             <Select label={"chose department"} id={"selected"}>

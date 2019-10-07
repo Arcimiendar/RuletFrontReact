@@ -22,7 +22,7 @@ function RuletListChild({onChange}) {
         </HeaderFooterWrapper>;
     if (error)
         return <HeaderFooterWrapper>
-            Error: {error}
+            Error: {error.message}
         </HeaderFooterWrapper>;
 
     let collection_items = <CollectionItem href={"#"} onClick={() => onChange(-1)}>
@@ -60,12 +60,11 @@ class RuletList extends Component {
     }
 
     render() {
-
         if (this.state.redirect)
         {
             if (this.state.rulet_id < 0)
-                return <Redirect to={"/"}/>
-            // TODO: here must be redirect if state.redirect is true to rulet detail page
+                return <Redirect to={"/"}/>;
+            return <Redirect to={"/rulet/list/" + this.state.rulet_id}/>;
         }
         return <RuletListChild onChange={this.handleChange}/>
     }
