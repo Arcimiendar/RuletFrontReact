@@ -6,9 +6,9 @@ import Cookies from "universal-cookie"
 function HeaderFooterWrapper(props) {
     const cookies = new Cookies();
     if (props.Department)
-        cookies.set("department", props.Department);
+        cookies.set("department_name", props.Department);
     return [
-        <Header department={cookies.get("department")}/>,
+        <Header department={cookies.get("department_name")}/>,
         <main>{props.children}</main>,
         <Footer/>
     ]

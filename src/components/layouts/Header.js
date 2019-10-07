@@ -11,6 +11,7 @@ class Header extends Component {
         };
         this.handleEmployeesLink = this.handleEmployeesLink.bind(this);
         this.handleHomeLink = this.handleHomeLink.bind(this);
+        this.handleRuletsLink = this.handleRuletsLink.bind(this);
     }
 
     handleEmployeesLink(e) {
@@ -23,6 +24,11 @@ class Header extends Component {
             this.setState({redirect: true, link: "/"})
     }
 
+    handleRuletsLink(e) {
+        if (window.location.pathname !== "/rulet/list/")
+            this.setState({redirect: true, link: "/rulet/list/"});
+    }
+
     render() {
 
         if (this.state.redirect)
@@ -32,7 +38,7 @@ class Header extends Component {
             <NavItem onClick={this.handleEmployeesLink}>
                 Employees list
             </NavItem>
-            <NavItem>
+            <NavItem onClick={this.handleRuletsLink}>
                 Rulet list
             </NavItem>
             <NavItem>
