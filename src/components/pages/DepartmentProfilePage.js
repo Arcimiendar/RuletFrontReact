@@ -1,9 +1,10 @@
 import React, {Component} from "react"
 import gql from 'graphql-tag'
 import {useQuery} from "@apollo/react-hooks";
-import {Collapsible, CollapsibleItem, Icon, Collection, CollectionItem} from "react-materialize"
+import {Collapsible, CollapsibleItem, Icon, Collection, CollectionItem, Button} from "react-materialize";
 import HeaderFooterWrapper from "../layouts/HeaderFooterWrapper";
 import {Redirect} from "react-router-dom";
+import {Mutation} from "react-apollo";
 
 
 const GET_DEPARTMENT_DATA_QUERY = gql`
@@ -23,6 +24,15 @@ const GET_DEPARTMENT_DATA_QUERY = gql`
     }
 `;
 
+const CLEAR_DEPARTMENT_MUTATION = gql`
+    mutation ($id: Int!){
+        clearDepartment(id: $id){
+            department{
+                id
+            }
+        }
+    }
+`;
 
 function DepartmentProfilePageChild({onChange, departmentId}) {
 
@@ -78,6 +88,16 @@ function DepartmentProfilePageChild({onChange, departmentId}) {
             <Collapsible>
                 {collapsible_items}
             </Collapsible>
+            <p id={"message"}></p>
+            <Mutation mutation={CLEAR_DEPARTMENT_MUTATION}>
+                {(handleMutation, {data}) => <Button onClick={() => {
+                    handleMutation({variables: {id: departmentId}});
+                    onChange("/department/" + departmentId);
+                }}>
+                    clear department
+                </Button>}
+            </Mutation>
+
         </div>
     </HeaderFooterWrapper>
 
@@ -97,6 +117,7 @@ class DepartmentProfilePage extends Component {
             redirect: true,
             url: url
         });
+        this.forceUpdate()
     }
     render() {
         if (this.state.redirect)
