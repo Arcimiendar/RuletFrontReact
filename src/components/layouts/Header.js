@@ -1,6 +1,18 @@
 import React, {Component} from "react"
 import {Navbar, NavItem} from "react-materialize";
 import {Redirect} from "react-router-dom";
+import {Mutation} from "react-apollo";
+import gql from "graphql-tag";
+
+const CLEAR_ALL_DEPARTMENTS_MUTATION = gql`
+    mutation {
+        clearAllDepartment {
+            departments{
+                id
+            }
+        }
+    }
+`;
 
 class Header extends Component {
     constructor(props) {
@@ -41,9 +53,11 @@ class Header extends Component {
             <NavItem onClick={this.handleRuletsLink}>
                 Rulet list
             </NavItem>
-            <NavItem>
-                Clear all departments
-            </NavItem>
+            <Mutation mutation={CLEAR_ALL_DEPARTMENTS_MUTATION}>
+                { (handleMutation, {data}) => <NavItem onClick={() => handleMutation()}>
+                    Clear all departments
+                </NavItem>}
+            </Mutation>
             <NavItem onClick={this.handleHomeLink}>
                 Home
             </NavItem>
