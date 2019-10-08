@@ -6,6 +6,7 @@ import EmployeeList from "./components/pages/EmployeeList";
 import EmployeeDetail from "./components/pages/EmployeeDetail";
 import RuletList from "./components/pages/RuletList";
 import RuletSessionResult from "./components/pages/RuletSessionResult";
+import Rulet from "./components/pages/Rulet";
 
 function Router(props) {
     return(
@@ -16,6 +17,7 @@ function Router(props) {
             <Route exact path={"/employee/:employee_id"} component={EmployeeDetail}/>
             <Route exact path={"/rulet/list/"} component={RuletList}/>
             <Route exact path={"/rulet/list/:rulet_id"} component={RuletSessionResult}/>
+            <Route exact path={"/rulet/:department_id"} component={Rulet}/>
         </Switch>
     );
 }

@@ -11,3 +11,7 @@ main {
 nav {
   background-color: #0066ff !important;
 }
+
+.carousel {
+  min-height: 520px;
+}

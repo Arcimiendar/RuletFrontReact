@@ -4,7 +4,9 @@ import Footer from "./Footer";
 import Cookies from "universal-cookie"
 import NotificationSystem from "./NotificationSystem";
 
+
 function HeaderFooterWrapper(props) {
+
     const cookies = new Cookies();
     if (props.Department)
         cookies.set("department_name", props.Department);

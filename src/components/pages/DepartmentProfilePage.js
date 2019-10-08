@@ -25,7 +25,7 @@ const GET_DEPARTMENT_DATA_QUERY = gql`
 
 
 function DepartmentProfilePageChild({onChange, departmentId}) {
-    console.log(departmentId);
+
     const { loading, error, data } = useQuery(GET_DEPARTMENT_DATA_QUERY, {
             variables: { department_id: departmentId },
         });
@@ -65,7 +65,7 @@ function DepartmentProfilePageChild({onChange, departmentId}) {
         collapsible_items.push(
             <CollapsibleItem header={"Employees"} icon={<Icon>face</Icon>}>
                 <Collection>
-                    <CollectionItem href={""}>
+                    <CollectionItem href={"#"} onClick={() => {}}>
                         There is no employees in this department.
                     </CollectionItem>
                 </Collection>
