@@ -49,7 +49,8 @@ class Rulet extends Component {
             employees_ready: false,
         };
         this.socket = new WebSocket(
-            (DEVELOP ? "ws://127.0.0.1:8000" : "") + "/ws/rulet/" + this.props.match.params.department_id
+            (DEVELOP ? "ws://127.0.0.1:8000" : "ws://" + window.location.host)
+                    + "/ws/rulet/" + this.props.match.params.department_id
         );
         this.socket.onopen = ev => {
             this.socket_is_open = true;

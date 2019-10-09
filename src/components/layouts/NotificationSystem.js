@@ -38,7 +38,8 @@ class NotificationSystem extends Component {
         let cookies = new Cookies();
         this.department_id = cookies.get("department");
         this.socket = new WebSocket(
-            (DEVELOP ? "ws://127.0.0.1:8000" : "") + "/ws/notification/" + cookies.get("department")
+            (DEVELOP ? "ws://127.0.0.1:8000" : "ws://" + window.location.host)
+                    + "/ws/notification/" + cookies.get("department")
         );
 
         this.state = {

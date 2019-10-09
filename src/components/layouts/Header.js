@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import {Navbar, NavItem} from "react-materialize";
+import {Navbar, NavItem, Switch} from "react-materialize";
 import {Redirect} from "react-router-dom";
 import {Mutation} from "react-apollo";
 import gql from "graphql-tag";
@@ -47,6 +47,12 @@ class Header extends Component {
             return <Redirect to={this.state.link}/>;
 
         return <Navbar brand={<a>The Rulet Application {this.props.department}</a>} alignLinks="right">
+            <NavItem>
+                <div className="switch"><label style={{color: "white"}}>
+                    template<input type="checkbox" checked={true}
+                                   onClick={() => window.location.host = '127.0.0.1:8000'}/>
+                    <span className="lever"></span>react</label></div>
+            </NavItem>
             <NavItem onClick={this.handleEmployeesLink}>
                 Employees list
             </NavItem>
