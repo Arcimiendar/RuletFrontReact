@@ -3,6 +3,7 @@ import HeaderFooterWrapper from "../layouts/HeaderFooterWrapper";
 import {Card, Row, Col} from "react-materialize"
 import {useQuery} from "@apollo/react-hooks";
 import gql from "graphql-tag";
+import {DEVELOP} from "../../index";
 
 
 const GET_EMPLOYEE_DETAIL_QUERY = gql`
@@ -57,7 +58,7 @@ function EmployeeDetail(props) {
                     className="blue-grey darken-1"
                     textClassName="white-text"
                     title={<span>
-                        <img src={"http://127.0.0.1:8000" + data.employee.image}
+                        <img src={(DEVELOP ? "http://127.0.0.1:8000" : "") + data.employee.image}
                              width={"30%"} height={"30%"} className={"circle"} alt={""}/>
                         {data.employee.firstName} {data.employee.lastName}
                     </span>}

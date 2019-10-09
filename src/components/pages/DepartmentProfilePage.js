@@ -5,6 +5,7 @@ import {Collapsible, CollapsibleItem, Icon, Collection, CollectionItem, Button} 
 import HeaderFooterWrapper from "../layouts/HeaderFooterWrapper";
 import {Redirect} from "react-router-dom";
 import {Mutation} from "react-apollo";
+import {DEVELOP} from "../../index";
 
 
 const GET_DEPARTMENT_DATA_QUERY = gql`
@@ -71,7 +72,7 @@ function DepartmentProfilePageChild({onChange, departmentId, onClear, isEmpty}) 
                 <Collection>
                     {data.department.employees.map(e =>
                     <CollectionItem href={"#"} onClick={() => onChange("/employee/" + e.id)}>
-                        <img src={"http://127.0.0.1:8000" + e.image} alt={""}
+                        <img src={(DEVELOP ? "http://127.0.0.1:8000" : "") + e.image} alt={""}
                              className={"circle"} width={"4%"} height={"4%"}/>
                         {e.firstName} {e.lastName}
                     </CollectionItem>

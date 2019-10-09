@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="5a11e72e-1bdc-47b5-b679-62b5b08b21bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layouts/NotificationSystem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layouts/NotificationSystem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pages/DepartmentProfilePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/DepartmentProfilePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/EmployeeDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/EmployeeDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/EmployeeList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/EmployeeList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/Rulet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/Rulet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/RuletSessionResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/RuletSessionResult.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -85,7 +88,7 @@
       <workItem from="1570181216045" duration="56000" />
       <workItem from="1570430281722" duration="16316000" />
       <workItem from="1570517814481" duration="15871000" />
-      <workItem from="1570600982184" duration="4885000" />
+      <workItem from="1570600982184" duration="5437000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1570084325473</created>
@@ -178,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570534926657</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fixed bugs and add buttons to department profile page">
+      <created>1570605929470</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1570605929470</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,6 +221,7 @@
     <MESSAGE value="added notification system links" />
     <MESSAGE value="add clear all departments mutation" />
     <MESSAGE value="add clear department mutation to department profile page (need to fix bugs)" />
-    <option name="LAST_COMMIT_MESSAGE" value="add clear department mutation to department profile page (need to fix bugs)" />
+    <MESSAGE value="fixed bugs and add buttons to department profile page" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs and add buttons to department profile page" />
   </component>
 </project>

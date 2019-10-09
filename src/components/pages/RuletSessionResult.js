@@ -3,7 +3,7 @@ import HeaderFooterWrapper from "../layouts/HeaderFooterWrapper";
 import {Redirect} from "react-router-dom";
 import gql from "graphql-tag";
 import {useQuery} from "@apollo/react-hooks";
-import M from "materialize-css"
+import {DEVELOP} from "../../index";
 
 const GET_RULET_SESSION_INFORMATION = gql`
     query ($rulet_session_id: Int!){
@@ -76,7 +76,7 @@ function RuletSessionResultChild({onChange, ruletId}) {
 
                 rows[rows.length - 1].push(<td align={"center"}>
                     <a onClick={() => onChange(employee.id)} href={"#"}>
-                        <img src={"http://127.0.0.1:8000" + employee.image} alt={""}
+                        <img src={(DEVELOP ? "http://127.0.0.1:8000" : "") + employee.image} alt={""}
                         className={"circle"} height={"4%"}/>{" "}
                         {employee.firstName} {employee.lastName}
                     </a>

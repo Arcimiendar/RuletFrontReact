@@ -5,6 +5,7 @@ import {useQuery} from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import {Redirect} from "react-router-dom";
 import M from "materialize-css"
+import {DEVELOP} from "../../index";
 
 
 const GET_EMPLOYEES_WITHOUT_DEPARTMETNS = gql`
@@ -48,7 +49,7 @@ class Rulet extends Component {
             employees_ready: false,
         };
         this.socket = new WebSocket(
-            "ws://127.0.0.1:8000/ws/rulet/" + this.props.match.params.department_id
+            (DEVELOP ? "ws://127.0.0.1:8000" : "") + "/ws/rulet/" + this.props.match.params.department_id
         );
         this.socket.onopen = ev => {
             this.socket_is_open = true;
@@ -136,7 +137,7 @@ class Rulet extends Component {
                     {this.state.employees_data.employeesWithoutDepartment.map(e =>
                     <div align={"center"}>
                         <p></p>
-                        <img src={"http://127.0.0.1:8000" + e.image} alt={""} className={"circle"}/>
+                        <img src={(DEVELOP ? "http://127.0.0.1:8000" : "") + e.image} alt={""} className={"circle"}/>
                         <b>{e.firstName} {e.lastName}</b> <br/><br/>
                         <Button waves={"light"} onClick={ev => this.handleProfilePageRedirect(e.id)}>
                             show profile</Button> <br/><br/>

@@ -8,6 +8,7 @@ import {Mutation} from "react-apollo";
 import ReactDOM from "react-dom"
 import {ApolloProvider} from "react-apollo";
 import client from "../../index";
+import {DEVELOP} from "../../index";
 
 const NOT_PAPRTICIPATE_MUTATION = gql`
     mutation ($id: ID!){
@@ -37,7 +38,7 @@ class NotificationSystem extends Component {
         let cookies = new Cookies();
         this.department_id = cookies.get("department");
         this.socket = new WebSocket(
-            'ws://127.0.0.1:8000/ws/notification/' + cookies.get("department")
+            (DEVELOP ? "ws://127.0.0.1:8000" : "") + "/ws/notification/" + cookies.get("department")
         );
 
         this.state = {

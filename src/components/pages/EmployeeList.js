@@ -4,6 +4,7 @@ import HeaderFooterWrapper from "../layouts/HeaderFooterWrapper";
 import gql from "graphql-tag";
 import {useQuery} from "@apollo/react-hooks";
 import {Redirect} from "react-router-dom";
+import {DEVELOP} from "../../index";
 
 const GET_EMPLOYEES_QUERY = gql`
     query {
@@ -41,7 +42,7 @@ function EmployeeListChild({ onChange }) {
     </CollectionItem>;
     if (data.employees.length > 0)
         collection_items = data.employees.map(e =>  <CollectionItem href={"#"}  onClick={() => onChange(e.id)} >
-            <img src={"http://127.0.0.1:8000" + e.image} alt={""}
+            <img src={(DEVELOP ? "http://127.0.0.1:8000" : "") + e.image} alt={""}
                  className={"circle"} width={"4%"} height={"4%"}/> {e.firstName} {e.lastName}
                  <PrintDepartment department={e.department}/>
         </CollectionItem>);

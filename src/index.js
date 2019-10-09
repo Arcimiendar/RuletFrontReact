@@ -17,6 +17,8 @@ const client = new ApolloClient({
     }
 });
 
+let DEVELOP = true;
+
 ReactDOM.render(
     <ApolloProvider client={client}>
         <BrowserRouter>
@@ -32,3 +34,4 @@ ReactDOM.render(
 serviceWorker.unregister();
 
 export default client;
+export {DEVELOP};
