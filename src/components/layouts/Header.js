@@ -3,6 +3,7 @@ import {Navbar, NavItem, Switch} from "react-materialize";
 import {Redirect} from "react-router-dom";
 import {Mutation} from "react-apollo";
 import gql from "graphql-tag";
+import {DEVELOP} from "../../index";
 
 const CLEAR_ALL_DEPARTMENTS_MUTATION = gql`
     mutation {
@@ -50,7 +51,12 @@ class Header extends Component {
             <NavItem>
                 <div className="switch"><label style={{color: "white"}}>
                     template<input type="checkbox" checked={true}
-                                   onClick={() => window.location.host = '127.0.0.1:8000'}/>
+                                   onClick={() => {
+                                        if (DEVELOP)
+                                            window.location.host = '127.0.0.1:8000';
+                                        else
+                                            window.location.pathname = "/t" + window.location.pathname
+                                   }}/>
                     <span className="lever"></span>react</label></div>
             </NavItem>
             <NavItem onClick={this.handleEmployeesLink}>

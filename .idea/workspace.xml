@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5a11e72e-1bdc-47b5-b679-62b5b08b21bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layouts/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layouts/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layouts/NotificationSystem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layouts/NotificationSystem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/Rulet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/Rulet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +54,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.npm start">
+  <component name="RunManager" selected="npm.run build">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
       <method v="2" />
     </configuration>
@@ -68,6 +68,21 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="run build" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.Debug Application" />
+      <item itemvalue="npm.npm start" />
+      <item itemvalue="npm.run build" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -84,7 +99,7 @@
       <workItem from="1570181216045" duration="56000" />
       <workItem from="1570430281722" duration="16316000" />
       <workItem from="1570517814481" duration="15871000" />
-      <workItem from="1570600982184" duration="9075000" />
+      <workItem from="1570600982184" duration="13330000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1570084325473</created>
@@ -191,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570606616308</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="add switcher to template">
+      <created>1570610596630</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1570610596631</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,6 +248,7 @@
     <MESSAGE value="add clear department mutation to department profile page (need to fix bugs)" />
     <MESSAGE value="fixed bugs and add buttons to department profile page" />
     <MESSAGE value="add develop mode" />
-    <option name="LAST_COMMIT_MESSAGE" value="add develop mode" />
+    <MESSAGE value="add switcher to template" />
+    <option name="LAST_COMMIT_MESSAGE" value="add switcher to template" />
   </component>
 </project>
