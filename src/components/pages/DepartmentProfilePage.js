@@ -34,9 +34,9 @@ const CLEAR_DEPARTMENT_MUTATION = gql`
     }
 `;
 
-function DepartmentProfilePageChild({onChange, departmentId}) {
+function DepartmentProfilePageChild({onChange, departmentId, onClear, isEmpty}) {
 
-    const { loading, error, data } = useQuery(GET_DEPARTMENT_DATA_QUERY, {
+    const { loading, error, data, refetch } = useQuery(GET_DEPARTMENT_DATA_QUERY, {
             variables: { department_id: departmentId },
         });
 
@@ -57,6 +57,14 @@ function DepartmentProfilePageChild({onChange, departmentId}) {
               {data.department.description}
           </CollapsibleItem>
         );
+    let empty_department =
+        <CollapsibleItem header={"Employees"} icon={<Icon>face</Icon>}>
+            <Collection>
+                <CollectionItem href={"#"} onClick={() => {}}>
+                    There is no employees in this department.
+                </CollectionItem>
+            </Collection>
+        </CollapsibleItem>;
     if (data.department.employees.length > 0)
         collapsible_items.push(
             <CollapsibleItem header={"Employees"} icon={<Icon>face</Icon>}>
@@ -72,34 +80,29 @@ function DepartmentProfilePageChild({onChange, departmentId}) {
             </CollapsibleItem>
         );
     else
-        collapsible_items.push(
-            <CollapsibleItem header={"Employees"} icon={<Icon>face</Icon>}>
-                <Collection>
-                    <CollectionItem href={"#"} onClick={() => {}}>
-                        There is no employees in this department.
-                    </CollectionItem>
-                </Collection>
-            </CollapsibleItem>
-        );
+        collapsible_items.push(empty_department);
 
     return <HeaderFooterWrapper Department={data.department.name} DepartmentId={data.department.id}>
         <div className={"container"}>
             <h1>{data.department.name}</h1>
             <Collapsible>
-                {collapsible_items}
+                {isEmpty ? empty_department : collapsible_items}
             </Collapsible>
-            <p id={"message"}></p>
+            <p id={"message"}>You can begin the rulet session.</p>
             <Mutation mutation={CLEAR_DEPARTMENT_MUTATION}>
-                {(handleMutation, {data}) => <Button onClick={() => {
+                {(handleMutation, {data}) => <Button waves={"light"} onClick={() => {
                     handleMutation({variables: {id: departmentId}});
-                    onChange("/department/" + departmentId);
+                    onClear();
                 }}>
                     clear department
                 </Button>}
-            </Mutation>
-
+            </Mutation> <span></span>
+            <Button waves={"light"} onClick={() => onChange("/rulet/" + departmentId)}>Participate in the rulet</Button>
+            <span> </span>
+            <a id={"not_participate"}></a>
+            <p></p><br/>
         </div>
-    </HeaderFooterWrapper>
+    </HeaderFooterWrapper>;
 
 }
 
@@ -108,10 +111,13 @@ class DepartmentProfilePage extends Component {
         super(props);
         this.state = {
             redirect: false,
-            url: null
+            url: null,
+            empty: false
         };
         this.handleChange = this.handleChange.bind(this);
+        this.handleClear = this.handleClear.bind(this);
     }
+
     handleChange(url) {
         this.setState({
             redirect: true,
@@ -119,12 +125,22 @@ class DepartmentProfilePage extends Component {
         });
         this.forceUpdate()
     }
+
+    handleClear() {
+        this.setState({empty: true})
+    }
+
     render() {
         if (this.state.redirect)
+        {
+            this.state.redirect = false;
             return <Redirect to={this.state.url}/>;
+        }
 
         return <DepartmentProfilePageChild onChange={this.handleChange}
-                                           departmentId={this.props.match.params.department_id}/>
+                                           departmentId={this.props.match.params.department_id}
+                                           isEmpty={this.state.empty}
+                                           onClear={this.handleClear}/>
     }
 }
 

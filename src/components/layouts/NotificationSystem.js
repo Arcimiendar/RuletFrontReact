@@ -3,9 +3,11 @@ import Cookies from "universal-cookie";
 import {Modal, Button} from "react-materialize"
 import M from "materialize-css"
 import {Redirect} from "react-router-dom";
-import {useMutation} from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import {Mutation} from "react-apollo";
+import ReactDOM from "react-dom"
+import {ApolloProvider} from "react-apollo";
+import client from "../../index";
 
 const NOT_PAPRTICIPATE_MUTATION = gql`
     mutation ($id: ID!){
@@ -15,7 +17,6 @@ const NOT_PAPRTICIPATE_MUTATION = gql`
             }
         }
     }
-
 `;
 
 
@@ -86,13 +87,48 @@ class NotificationSystem extends Component {
             }
 
             let data = JSON.parse(ev.data);
-            if(data.state === 'notification')
-            {
+            if(data.state === 'notification') {
+                let message_inner = document.querySelector("#message");
+                if (message_inner)
+                    message_inner.innerHTML = "You need to allow or/and join to the rulet.";
+
+                let not_participate = document.querySelector("#not_participate");
+                if (not_participate)
+                    ReactDOM.render(<ApolloProvider client={client}><Mutation mutation={NOT_PAPRTICIPATE_MUTATION}>
+                        {
+                            (handleMutation, {data}) =>
+                            <Button waves={"light"} onClick={() => {
+                                handleMutation({variables: {id: +this.department_id}});
+                                not_participate.innerHTML = "";
+                                if (message_inner)
+                                    message_inner.innerHTML =
+                                        "You are not participating in the rulet, but you still can.";
+                            }}>
+                                Do not participate in the rulet</Button>
+                        }
+                    </Mutation></ApolloProvider>, not_participate);
+
                 this.request.open();
             }
-            else if (data['state'] === 'participating')
-            {
+            else if (data['state'] === 'participating') {
+                let message_inner = document.querySelector("#message");
+                if (message_inner)
+                    message_inner.innerHTML = "You are participating in the rulet.";
+
+                let not_participate = document.querySelector("#not_participate");
+                if (not_participate)
+                    not_participate.innerHTML = "";
+
                 this.participating.open();
+            }
+            else {
+                let message_inner = document.querySelector("#message");
+                if (message_inner)
+                    message_inner.innerHTML = "You can begin the rulet session.";
+
+                let not_participate = document.querySelector("#not_participate");
+                if (not_participate)
+                    not_participate.innerHTML = "";
             }
         };
     }
