@@ -11,7 +11,7 @@
     "react-dom": "^16.10.1",
     "react-materialize": "latest",
     "react-router-dom": "latest",
-    "react-scripts": "3.2.0",
+    "react-scripts": "5.0.1",
     "universal-cookie": "latest"
   },
   "scripts": {
@@ -42,6 +42,6 @@
     "react-apollo": "^3.1.2",
     "webpack": "^4.41.0",
     "webpack-cli": "^3.3.9",
-    "webpack-dev-server": "^3.8.2"
+    "webpack-dev-server": "^5.2.2"
   }
 }
